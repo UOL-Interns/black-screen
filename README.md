@@ -1,6 +1,6 @@
 # black-screen
 ## Github Branch Naming convention
-  There will be 3 types of code pushes
+  There will be 3 types of Branches:
   1. Feature
   2. Bug Fix
   3. Hot Fix
