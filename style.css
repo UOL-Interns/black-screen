@@ -198,7 +198,18 @@ footer {
     height: 2rem;
     width: 2.5rem;
     border-radius: 4px;
-  
     position: relative;
     display: flex;
+}
+.blackTile{
+    height: 100%;
+    width: 30vh;
+    left:30%;
+    position: relative;
+    left: 30%;
+}
+.sm-tiles{
+    height:9vh ;
+    width:10vh ;
+   
 }
