@@ -13,7 +13,7 @@
     font-size: 2rem;
     overflow: hidden;
     padding: 20px 10px;
-    border-radius: 45px;
+    border-radius:10px;
 }
 .header-container a{
     color:#fff;
