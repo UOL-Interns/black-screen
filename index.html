@@ -12,6 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.6.1/randomColor.min.js"
+        integrity="sha512-vPeZ7JCboHcfpqSx5ZD+/jpEhS4JpXxfz9orSvAPPj0EKUVShU2tgy7XkU+oujBJKnWmu4hU7r9MMQNWPfXsYw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Color Selection Website</title>
 
 </head>
@@ -45,53 +48,62 @@
     <br><br />
     <br></br>
     <!-- *********************5 tiles veiw***************************************** -->
-    <div class="container text-center">
-        <div class="row justify-content-md-center">
-            <div class="col col-lg-6">
-                <div class="blackTile" style="background-color:black; border-radius:10px;  justify-content: center;">
-                </div>
-            </div>
-            <div class="col col-lg-6">
-                <div class="row" style=" justify-content: center;">
-                    <div class="col col-xs-12 col-sm-12 col-md-6">
-                        <div class="sm-tiles"
-                            style="background-color:#ffffff; border-radius:10px; border:1px solid grey;"></div>
+    <div class="container text-center" id="overlay">
+        <div id="content">
+            <div class="row justify-content-md-center">
+                <div class="col col-lg-6">
+                    <div class="blackTile" id="blackTile" onclick="openFullscreen()"
+                        style="background-color:black; border-radius:10px;  justify-content: center;">
                     </div>
-                    <div class="col col-xs-12 col-sm-12 col-md-6" style="right: 23%;">
-                        <div>
+                </div>
+                <div class="col col-lg-6">
+                    <div class="row" style=" justify-content: center;">
+                        <div class="col col-xs-12 col-sm-12 col-md-6">
                             <div class="sm-tiles"
-                                style="background-color:#860606; border-radius:10px; border:1px solid grey;"></div>
+                                style="background-color:#ffffff; border-radius:10px; border:1px solid grey;"
+                                id="whiteTile" onclick="openFullscreenw()"></div>
+                        </div>
+                        <div class="col col-xs-12 col-sm-12 col-md-6" style="right: 23%;">
+                            <div>
+                                <div class="sm-tiles"
+                                    style="background-color:#860606; border-radius:10px; border:1px solid grey;"
+                                    id="red" onclick="openFullscreenr()"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
+                    <!-- tiles buuttons start -->
+                    <!-- <div class="row">
                     <div class="col col-xs-12 col-sm-12 col-md-6">
-                        <button type="button" class="btn btn-outline-secondary btn-tile">White</button>
+                        <button type="button" class="btn btn-outline-secondary btn-tile" id="whiteBtn" onclick="openFullscreen()">White</button>
 
                     </div>
                     <div class="col col-xs-12 col-sm-12 col-md-6" style="right: 23%;">
-                        <button type="button" class="btn btn-outline-danger btn-tile">Red</button>
+                        <button type="button" class="btn btn-outline-danger btn-tile" id="redBtn" onclick="openFullscreen()">Red</button>
 
                     </div>
-                </div>
-                <div class="row">
+                </div> -->
+                    <!-- tiles buuttons end -->
+                    <div class="row">
+                        <div class="col col-xs-12 col-sm-12 col-md-6">
+                            <div class="sm-tiles" style="background-color:green; border-radius:10px" id="green"
+                                onclick="openFullscreeng()"></div>
+                        </div>
+                        <div class="col col-xs-12 col-sm-12 col-md-6" style="right: 23%;">
+                            <div class="sm-tiles" style="background-color:blue; border-radius:10px" id="blue"
+                                onclick="openFullscreenb()"></div>
+                        </div>
+                    </div>
+                    <!-- <div class="row">
                     <div class="col col-xs-12 col-sm-12 col-md-6">
-                        <div class="sm-tiles" style="background-color:green; border-radius:10px"></div>
+                        <button type="button" class="btn btn-outline-success btn-tile" id="greenBtn" onclick="openFullscreen()">Green</button>
+
                     </div>
                     <div class="col col-xs-12 col-sm-12 col-md-6" style="right: 23%;">
-                        <div class="sm-tiles" style="background-color:blue; border-radius:10px"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col col-xs-12 col-sm-12 col-md-6">
-                        <button type="button" class="btn btn-outline-success btn-tile">Green</button>
-
-                    </div>
-                    <div class="col col-xs-12 col-sm-12 col-md-6" style="right: 23%;">
-                        <button type="button" class="btn btn-outline-primary btn-tile">Blue</button>
+                        <button type="button" class="btn btn-outline-primary btn-tile" id="blueBtn" onclick="openFullscreen()">Blue</button>
 
                     </div>
 
+                </div> -->
                 </div>
             </div>
         </div>
@@ -108,8 +120,9 @@
         <div class="container text-center">
             <div class="row">
                 <div class="col" style="border-radius: 10px; height:14rem; float:right; ">
-                    <div
-                        style="float:right; background-color: #c56744; border-radius: 10px; height:14rem; width: 12rem;">
+                    <div class="colorChangerColor"
+                        style="float:right;  border-radius: 10px; height:14rem; width: 12rem;" id="colorChangerColor"
+                        onclick="openFullscreenColor()">
                     </div>
                 </div>
                 <div class="col" style="margin-top:5rem;">
@@ -117,18 +130,18 @@
                 </div>
                 <!-- <div class="col" style=" background-color: #a4b799; border-radius: 10px;height:14rem; width: 12rem;"><div>OR</div></div> -->
                 <div class="col" style=" border-radius: 10px; height:14rem;">
-                    <div
-                        style=" background-color: #682b27f3; border-radius: 10px; height:14rem; width: 12rem; float:left;">
+                    <div class="colorChangerHex" style=" border-radius: 10px; height:14rem; width: 12rem; float:left;"
+                        id="colorChangerHex" onclick="openFullscreenHex()">
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col" style="margin-left: 9.8rem; margin-top: 1rem;"><input class="form-control" type="text"
-                        value="Enter color name " aria-label="readonly input example" readonly=""
-                        style="width:12rem;  text-align: center;"></div>
+                        placeholder="Enter color name" style="width:12rem;  text-align: center;" id="colorInput"
+                        onchange="colorInput()"></div>
                 <div class="col" style="margin-right: 9.8rem; margin-top: 1rem;"><input class="form-control" type="text"
-                        value="Enter color name " aria-label="readonly input example" readonly=""
-                        style="width:12rem; float: right; text-align: center; "></div>
+                        placeholder="Enter Hex Code" style="width:12rem; float: right; text-align: center;"
+                        id="colorInputHex" onchange="colorInputHex()"></div>
             </div>
         </div>
     </div>
@@ -143,20 +156,22 @@
         <br></br>
         <div class="card-deck mb-4">
             <div class="card mb-4" style="border: #fff;">
-                <div class="card-body cgreen"></div>
+                <div class="card-body cgreen" id="cgreenDiv" onclick="openFullscreencgreen()"></div>
             </div>
         </div>
     </div>
     <div class="container text-center">
-        <div class="row row-cols-2">
-            <div class="col" style="margin-top: 1.5rem; left: 1%;">
-                <div class="card-body" style="float:right">
+        <div class="row row-cols-2" style="margin-left: 4rem;">
+            <div class="col" style="margin-top: 1.5rem;">
+                <div class="card-body" style="float:right; ">
                     <p>Choose your color- </p>
                 </div>
             </div>
             <div class="col" style="margin-top: 1rem; left: 5px; ;">
                 <div class="card-body" style="float:left;top:3 rem;">
-                    <div class="color-picker"></div>
+                    <!-- <div class="color-picker"></div> -->
+                    <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#42B089"
+                        title="Choose your color">
                 </div>
             </div>
         </div>
@@ -170,7 +185,8 @@
         </p>
         <br><br />
         <div class="color-container">
-            <div class="color-option" style="background-color:rgb(43, 85, 141); width: 50%;height: 33vh;"></div>
+            <div class="color-option" style="background-color:rgb(43, 85, 141); width: 50%;height: 33vh;"
+                id="allColors" onclick="openFullscreenallColors()"></div>
         </div>
         <p>You can either initiate a slideshow of random colors or enable the display to cycle
 
@@ -265,60 +281,78 @@
     </p>
     <br><br />
     <!-- ********************************  style colored text eiditor *****************************************************-->
-    <div class="container-md" >
+    <div class="container-md">
         <div class="richTextEidtor">
             <div class="editorHeader" style="text-align: center;">
                 <h3>Show notice</h3>
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col leftSide" >
+                    <div class="col leftSide">
                         <div class="grid text-center topgrid">
-                          <div></div>  <div class="text1"><p><b>Text</b></p></div>
-                            <div class="text-colorChanger"></div>
-                            <div class="bg"><p> <b>Background</b></p></div>
-                            <div class="bg-colorChanger"></div>
+                            <div></div>
+                            <div class="text1">
+                                <p><b>Text</b></p>
+                            </div>
+                            <input type="color" class="form-control form-control-color" id="colorInputText"
+                                value="#D11A7B" title="Choose your color" style="border: none;">
+                            <!-- <div class="text-colorChanger"></div> -->
+                            <div class="bg">
+                                <p> <b>Background</b></p>
+                            </div>
+                            <input type="color" class="form-control form-control-color" id="colorInputBg"
+                                value="#D11A7B" title="Choose your color" style="border: none;">
+                            <!-- <div class="bg-colorChanger"></div> -->
                             <div></div>
                         </div>
                         <div class="textArea">
                             <div class="form-floating">
-                                <textarea class="form-control" placeholder="" id="floatingTextarea2" style="height: 200px; width: 80%; margin-left:3rem; border-radius: 20px;"></textarea>
-                              </div>
+                                <textarea class="form-control" placeholder="" id="floatingTextarea2"
+                                    style="height: 200px; width: 80%; margin-left:3rem; border-radius: 20px;"></textarea>
+                            </div>
                         </div>
-                      
+
                         <div class="row" style="width: 65vh; margin-top: 1rem; margin-left: 3rem;">
-                            <div class="col" >
-                                 <button type="button" class="btn btn-outline-secondary" style="height: 6vh; width: 7vh;" ><b>B</b></button>
+                            <div class="col">
+                                <button type="button" class="btn btn-outline-secondary"
+                                    style="height: 6vh; width: 7vh;"><b>B</b></button>
                             </div>
                             <div class="col">
-                                <button type="button" class="btn btn-outline-secondary" style="height: 6vh; width: 7vh;">/</button>
+                                <button type="button" class="btn btn-outline-secondary"
+                                    style="height: 6vh; width: 7vh;">/</button>
                             </div>
                             <div class="col">
-                                <button type="button" class="btn btn-outline-secondary" style="height: 6vh; width: 7vh;"><u>U</u></button>
+                                <button type="button" class="btn btn-outline-secondary"
+                                    style="height: 6vh; width: 7vh;"><u>U</u></button>
                             </div>
                             <div class="col">
-                                <button type="button" class="btn btn-outline-secondary" style="height: 6vh; width: 7vh;"><b>A</b></button>
+                                <button type="button" class="btn btn-outline-secondary"
+                                    style="height: 6vh; width: 7vh;"><b>A</b></button>
                             </div>
                             <div class="col">
-                                <button type="button" class="btn btn-outline-secondary" style="height: 6vh; width: 7vh;"><b>B</b></button>
+                                <button type="button" class="btn btn-outline-secondary"
+                                    style="height: 6vh; width: 7vh;"><b>B</b></button>
                             </div>
                             <div class="col">
-                                <button type="button" class="btn btn-outline-secondary" style="height: 6vh; width: 7vh;"><b>C</b></button>
+                                <button type="button" class="btn btn-outline-secondary"
+                                    style="height: 6vh; width: 7vh;"><b>C</b></button>
                             </div>
                         </div>
                     </div>
-                    <div class="col rightSide">
-                        <p>Black Screen</p>
+                    <div class="col rightSide" id="colorScreenBg">
+                        <p id="colorText">
+                       Black Screen</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-   <br></br>
-      <p>
-        <button type="button" class="btn btn-outline-secondary" style="width: 30vh; height: 8vh; border-radius: 30px;">Full screen mode</button>
+    <br></br>
+    <p>
+        <button type="button" class="btn btn-outline-secondary"
+            style="width: 30vh; height: 8vh; border-radius: 30px;" id="btnScreen" onclick="openFullscreenbtn()">Full screen mode</button>
     </p>
-  
+
     <br></br>
     <div class="container-wallpaper">
         <h1>WALLPAPERS</h1>
@@ -326,17 +360,21 @@
         <div class="wallpaper-veiw">
             <div class="row" style="margin: 8rem;padding: 10px;">
                 <div class="col">
-                    <div class="text-center"> 
+                    <div class="text-center">
                         <p><b>Desktop view</b></p>
-                        <img src="HD-wallpaper-plain-black-black.jpg" class="rounded" alt="..." style="height:30vh; width: 60vh; margin-top: 3rem;" ></div>
+                        <img src="HD-wallpaper-plain-black-black.jpg" class="rounded" alt="..."
+                            style="height:30vh; width: 60vh; margin-top: 3rem;">
+                    </div>
                 </div>
                 <div class="col">
                     <p><b>Mobile view</b></p>
-                    <div class="text-center"> <img src="HD-wallpaper-plain-black-black.jpg" class="rounded " alt="..." style="height:45vh; width:30vh;"></div>
+                    <div class="text-center"> <img src="HD-wallpaper-plain-black-black.jpg" class="rounded " alt="..."
+                            style="height:45vh; width:30vh;"></div>
                 </div>
                 <div class="col">
                     <p><b>Tablate view</b></p>
-                    <div class="text-center"> <img src="HD-wallpaper-plain-black-black.jpg" class="rounded" style="height:45vh; width:40vh;" alt="..."></div>
+                    <div class="text-center"> <img src="HD-wallpaper-plain-black-black.jpg" class="rounded"
+                            style="height:45vh; width:40vh;" alt="..."></div>
                 </div>
             </div>
         </div>
@@ -347,58 +385,69 @@
         <br></br>
         <div class="container overflow-hidden text-center" style="border: 1px solid; width: 100vh;">
             <div class="row gx-5">
-              <div class="col" style="margin-top:10px;"><h3><b>Black screen</b></h3>
-               <div class="p-3" style="background-color: #ffffff;">
-                <div class="dropdown" style=" left: 6%;">
-                    <button class="btn btn-outline-secondary dropdown-toggle" style="width: 18vh; height: 6vh; border: 1px solid;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                     430px </button>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item active" href="#">550px</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">100px</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">1000px</a></li>
-                    </ul>
-                  </div>
-                  <div class="mb-3 row" style="margin: 1rem;">
-                    <label for="inputPassword" class="col-sm-2 col-form-label"><b>Width</b></label>
-                    <div class="col-sm-5" style="left:20%;">
-                      <input type="password" class="form-control" id="inputPassword" placeholder="450px" style="border:1px solid">
+                <div class="col" style="margin-top:10px;">
+                    <h3><b>Black screen</b></h3>
+                    <div class="p-3" style="background-color: #ffffff;">
+                        <div class="dropdown" style=" left: 6%;">
+                            <button class="btn btn-outline-secondary dropdown-toggle"
+                                style="width: 18vh; height: 6vh; border: 1px solid;" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                430px </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" >550px</a></li>
+                               
+                                <li><a class="dropdown-item" >100px</a></li>
+                              
+                                <li><a class="dropdown-item">1000px</a></li>
+                            </ul>
+                        </div>
+                        <div class="mb-3 row" style="margin: 1rem;">
+                            <label  class="col-sm-2 col-form-label"><b>Width</b></label>
+                            <div class="col-sm-5" style="left:20%;">
+                                <input type="text" class="form-control" id="inputtextw" placeholder="450px"
+                                    style="border:1px solid">
+                            </div>
+                        </div>
+                        <div class="mb-3 row" style="margin: 1rem;">
+                            <label  class="col-sm-2 col-form-label"><b>Height</b></label>
+                            <div class="col-sm-5" style="left:20%;">
+                                <input type="text" class="form-control" id="inputtexth" placeholder="450px"
+                                    style="border:1px solid">
+                            </div>
+                        </div>
+                        <div class="mb-3 row" style="margin: 1rem;">
+                            <label  class="col-sm-2 col-form-label"><b>Color</b></label>
+                            <div class="col-sm-5" style="left:20%;">
+                                <input type="text" class="form-control" id="inputtextcol" placeholder="black"
+                                    style="border:1px solid">
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  <div class="mb-3 row" style="margin: 1rem;">
-                    <label for="inputPassword" class="col-sm-2 col-form-label"><b>Height</b></label>
-                    <div class="col-sm-5"  style="left:20%;">
-                      <input type="password" class="form-control" id="inputPassword" placeholder="450px" style="border:1px solid">
-                    </div>
-                  </div>
-                  <div class="mb-3 row" style="margin: 1rem;">
-                    <label for="inputPassword" class="col-sm-2 col-form-label" ><b>Color</b></label>
-                    <div class="col-sm-5" style="left:20%;">
-                      <input type="password" class="form-control" id="inputPassword" placeholder="black" style="border:1px solid">
-                    </div>
-                  </div>
-            </div>
-              </div>
-              <div class="col">
-                <div class="p-3" >
-                <div class="card" style="width:14rem; border: none; align-items: center;">
-                    <div class="card-body" style="width:10rem; height: 13rem; background: #000; border-radius: 10px; left:15%">
-                        <!-- img should be here -->
-                    </div>
-                    <div style="margin-top: 10px;"> <button type="button" class="btn btn-outline-secondary" style="width: 23vh; height: 6.5vh; border-radius: 30px;">Download</button></div>
                 </div>
-              </div>
+                <div class="col">
+                    <div class="p-3">
+                        <div class="card" style="width:14rem; border: none; align-items: center;">
+                            <div class="card-body"
+                                style="width:10rem; height: 13rem; background: #000; border-radius: 10px; left:15%">
+                                <!-- img should be here -->
+                            </div>
+                            <div style="margin-top: 10px;"> <button type="button" class="btn btn-outline-secondary"
+                                    style="width: 23vh; height: 6.5vh; border-radius: 30px;">Download</button></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-    </div>
+        </div>
     </div>
     <br></br>
     <div class="blackScreen">
         <h1 style="font-size: 1.5rem;">Black Screen Video</h1>
         <p>If you are utilizing an iOS device, you can watch this video to attain a completely black screen.</p>
         <br></br>
-      <div style="width:680px; height:450px; margin: auto;"><iframe width="660" height="415" src="https://www.youtube.com/embed/AjWfY7SnMBI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 15px;"></iframe></div>  
+        <div style="width:680px; height:450px; margin: auto;"><iframe width="660" height="415"
+                src="https://www.youtube.com/embed/AjWfY7SnMBI" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen style="border-radius: 15px;"></iframe></div>
         <br></br>
     </div>
     <div class="container-wiki" style="margin: 2rem;">
@@ -412,7 +461,10 @@
             sizes and formats. Recently, FullBlackscreen.com has added a new feature that enables users to showcase any
             message on their screens.</p>
         <br></br>
-        <div style="width:900px; height:450px; margin: auto;" ><iframe width="860" height="415" src="https://www.youtube.com/embed/AjWfY7SnMBI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="border-radius: 15px;"></iframe></div>  
+        <div style="width:900px; height:450px; margin: auto;"><iframe width="860" height="415"
+                src="https://www.youtube.com/embed/AjWfY7SnMBI" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen style="border-radius: 15px;"></iframe></div>
     </div>
     <br></br>
     <!-- ********************diffrenece paragraph **************************-->
@@ -635,6 +687,198 @@
         <p>&copy; 2023 Color Selection Website</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+        var black = document.getElementById("blackTile")
+        var white = document.getElementById("whiteTile")
+        var red = document.getElementById("red")
+        var green = document.getElementById("green")
+        var blue = document.getElementById("blue")
+        var colorChanger = document.getElementById("colorChanger")
+        var colorInput = document.getElementById("colorInput")
+        var cgreenDiv = document.getElementById("cgreenDiv")
+        function openFullscreen() {
+            if (black.requestFullscreen) {
+                black.requestFullscreen();
+            } else if (black.webkitRequestFullscreen) { /* Safari */
+                black.webkitRequestFullscreen();
+            } else if (black.msRequestFullscreen) { /* IE11 */
+                black.msRequestFullscreen();
+            }
+        }
+        function openFullscreenw() {
+            if (white.requestFullscreen) {
+                white.requestFullscreen();
+            } else if (white.webkitRequestFullscreen) { /* Safari */
+                white.webkitRequestFullscreen();
+            } else if (white.msRequestFullscreen) { /* IE11 */
+                white.msRequestFullscreen();
+            }
+        }
+        function openFullscreenr() {
+            if (red.requestFullscreen) {
+                red.requestFullscreen();
+            } else if (red.webkitRequestFullscreen) { /* Safari */
+                red.webkitRequestFullscreen();
+            } else if (red.msRequestFullscreen) { /* IE11 */
+                red.msRequestFullscreen();
+            }
+        }
+        function openFullscreeng() {
+            if (green.requestFullscreen) {
+                green.requestFullscreen();
+            } else if (green.webkitRequestFullscreen) { /* Safari */
+                green.webkitRequestFullscreen();
+            } else if (green.msRequestFullscreen) { /* IE11 */
+                green.msRequestFullscreen();
+            }
+        }
+        function openFullscreenb() {
+            if (blue.requestFullscreen) {
+                blue.requestFullscreen();
+            } else if (blue.webkitRequestFullscreen) { /* Safari */
+                blue.webkitRequestFullscreen();
+            } else if (blue.msRequestFullscreen) { /* IE11 */
+                blue.msRequestFullscreen();
+            }
+        }
+        function openFullscreencgreen() {
+            if (cgreenDiv.requestFullscreen) {
+                cgreenDiv.requestFullscreen();
+            } else if (cgreenDiv.webkitRequestFullscreen) { /* Safari */
+                cgreenDiv.webkitRequestFullscreen();
+            } else if (cgreenDiv.msRequestFullscreen) { /* IE11 */
+                cgreenDiv.msRequestFullscreen();
+            }
+        }
+        function openFullscreenColor() {
+            if (colorChangerColor.requestFullscreen) {
+                colorChangerColor.requestFullscreen();
+            } else if (colorChangerColor.webkitRequestFullscreen) { /* Safari */
+                colorChangerColor.webkitRequestFullscreen();
+            } else if (colorChangerColor.msRequestFullscreen) { /* IE11 */
+                colorChangerColor.msRequestFullscreen();
+            }
+        }
+        function openFullscreenHex() {
+            if (colorChangerHex.requestFullscreen) {
+                colorChangerHex.requestFullscreen();
+            } else if (colorChangerHex.webkitRequestFullscreen) { /* Safari */
+                colorChangerHex.webkitRequestFullscreen();
+            } else if (colorChangerHex.msRequestFullscreen) { /* IE11 */
+                colorChangerHex.msRequestFullscreen();
+            }
+        }
+        function openFullscreenallColors() {
+            if (allColors.requestFullscreen) {
+                allColors.requestFullscreen();
+            } else if (allColors.webkitRequestFullscreen) { /* Safari */
+                allColors.webkitRequestFullscreen();
+            } else if (allColors.msRequestFullscreen) { /* IE11 */
+                allColors.msRequestFullscreen();
+            }
+        }
+        function openFullscreenbtn() {
+            if (colorScreenBg.requestFullscreen) {
+                colorScreenBg.requestFullscreen();
+            } else if (colorScreenBg.webkitRequestFullscreen) { /* Safari */
+                colorScreenBg.webkitRequestFullscreen();
+            } else if (colorScreenBg.msRequestFullscreen) { /* IE11 */
+                colorScreenBg.msRequestFullscreen();
+            }
+        }
+
+        // const colorInput = document.getElementById("colorInput");
+        // const colorDiv = document.getElementById("colorDiv");
+        // const changeColorButton = document.getElementById("changeColorButton");
+        // function changeBackgroundColor(color) {
+        //     colorDiv.style.backgroundColor = color;
+        // }
+        // changeColorButton.addEventListener("click", function() {
+        //     const inputColor = colorInput.value;
+        //     changeBackgroundColor(inputColor);
+        // });
+        var colorChangerColor = document.getElementById("colorChangerColor")
+        var colorChangerHex = document.getElementById("colorChangerHex")
+        var colorInput = document.getElementById("colorInput")
+        var colorInputHex = document.getElementById("colorInputHex")
+        //    yahan se dobara start karna
+
+        // changeBackgroundColor.addEventListener("input",function(){
+        //     colorChangerColor.style.backgroundColor=colorInput.value;
+        //     // colorChangerHex.style.backgroundColor=color.value;
+        // });
+
+        colorChangerColor.style.backgroundColor = colorInput.value;
+
+
+        colorInput.addEventListener("input", function () {
+            colorChangerColor.style.backgroundColor = colorInput.value;
+
+        })
+        colorChangerHex.style.backgroundColor = colorInputHex.value;
+
+        colorInputHex.addEventListener("input", function () {
+
+            colorChangerHex.style.backgroundColor = colorInputHex.value;
+        })
+
+        var exampleColorInput = document.getElementById("exampleColorInput");
+        var cgreenDiv = document.getElementById("cgreenDiv");
+
+        cgreenDiv.style.backgroundColor = exampleColorInput.value;
+        // Add an event listener to the color picker
+        exampleColorInput.addEventListener("input", function () {
+            // Update the background color of the div with the selected color
+            cgreenDiv.style.backgroundColor = exampleColorInput.value;
+        });
+
+
+// SlideShow div
+
+    const allColors = document.getElementById('allColors')
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      console.log("test")
+      return color;
+    }
+    function changeBackgroundColor() {
+      const randomColor = getRandomColor();
+      allColors.style.backgroundColor = randomColor;
+    }
+    setInterval(changeBackgroundColor, 2000);
+
+// Text Eiditor
+var colorInputBg=document.getElementById("colorInputBg");
+var colorInputText=document.getElementById("colorInputText");
+var textarea=document.getElementById("floatingTextarea2");
+var colorText=document.getElementById("colorText");
+var colorScreenBg=document.getElementById("colorScreenBg");
+var btnScreen=document.getElementById("btnScreen");
+
+textarea.style.color=colorInputText.value;
+
+colorInputText.addEventListener("input",function(){
+    textarea.style.color=colorInputText.value;
+});
+
+textarea.addEventListener('input', function() {
+      const enteredText = textarea.value;
+    //   colorInputText.style.backgroundColor=colorText.value;
+      colorText.textContent = ` ${enteredText}`;
+    });
+colorInputBg.addEventListener("input", function () {
+            // Update the background color of the div with the selected color
+            colorScreenBg.style.backgroundColor =colorInputBg.value;
+        });
+
+
+</script>
 </body>
 
 </html>
